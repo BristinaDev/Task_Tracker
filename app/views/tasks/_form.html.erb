@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <%= form_with(model: @task, local: true) do |form| %>
+        <div class="mb-3">
+          <%= form.label :name, 'Task Name', class: 'form-label' %>
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+        
+        <div class="mb-3">
+          <%= form.label :due_date, 'Due Date', class: 'form-label' %>
+          <%= form.date_field :due_date, class: 'form-control' %>
+        </div>
+
+        <%= form.submit @task.persisted? ? 'Update Task' : 'Create Task', class: 'btn btn-primary' %>
+      <% end %>
+      <%= link_to 'Back', tasks_path, class: 'btn btn-secondary mt-2' %>
+    </div>
+  </div>
+</div>

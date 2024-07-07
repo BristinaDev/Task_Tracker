@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <div class="row gy-6 align-items-center my-4">
+    <div class="col-lg-6">
+      <h2 class="text-gray-700">Task Lists</h2>
+    </div>
+    <div class="col-lg-6 text-lg-end">
+      <%= link_to 'New Task', new_task_path, class: 'btn btn-primary btn-sm' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>All Tasks</h2>
+      <% @tasks_all.each do |task| %>
+        <%= render partial: 'task_card', locals: { task: task } %>
+      <% end %>
+    </div>
+
+    <div class="col">
+      <h2>Completed Tasks</h2>
+      <% @tasks_completed.each do |task| %>
+        <%= render partial: 'task_card', locals: { task: task } %>
+      <% end %>
+    </div>
+
+    <div class="col">
+      <h2>Overdue Tasks</h2>
+      <% @tasks_overdue.each do |task| %>
+        <%= render partial: 'task_card', locals: { task: task } %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-text"><strong>Task Name: </strong><%= task.name %></p>
+    <p class="card-text"><strong>Due Date: </strong><%= task.due_date.strftime('%d %b %Y') %></p>
+    <p class="card-text">
+    <strong>Task Current Status: </strong> 
+      <% if task.status == 'completed' %>
+        <span class="badge bg-success">Completed</span>
+      <% elsif task.due_date < Date.today %>
+        <span class="badge bg-danger">Overdue</span>
+      <% else %>
+        <span class="badge bg-primary">Pending</span>
+      <% end %>
+    </p>
+    <div class="hstack mt-3 gap-2 justify-content-end text-end">
+      <% if task.incomplete? %>
+        <%= button_to 'Mark as Complete', mark_complete_task_path(task), method: :patch, class: 'btn btn-success btn-sm' %>
+      <% end %>
+      <%= link_to 'Edit', edit_task_path(task), class: 'btn btn-secondary btn-sm' %>
+    </div>
+  </div>
+</div>
