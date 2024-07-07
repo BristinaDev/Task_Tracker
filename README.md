@@ -18,12 +18,12 @@ Things you may want to cover:
 
 * Database creation * Database initialization
 
-```rails db:create
-```rails db:migarte
-```rails db:seed
+```rails db:create```
+```rails db:migarte```
+```rails db:seed```
 
 * How to run the test suit
-```rails assets:precompile #if needed
+```rails assets:precompile``` #if needed
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
